@@ -1,0 +1,117 @@
+****************
+* Project 3: Hash
+* Class: 321
+* Date: 10/20
+* Name: Josh Berkenmeier
+**************** 
+
+****************
+* Project number/name
+* Class
+* Date
+* Your name
+**************** 
+
+OVERVIEW:
+
+This program creates a hashtable and inserts various objects, keeping track of probes and duplicates
+as well as amount of objects.
+
+
+INCLUDED FILES:
+
+ * HashObject.java - source file
+ * HashTable.java - source file
+ * HashTest.java - driver file
+ * HashTestWithJava.java - driver file
+ * README - this file
+
+
+COMPILING AND RUNNING:
+
+
+ From the directory containing all source files, compile the
+ driver class (and all dependencies) with the command:
+ $ javac HashTest.java
+
+ Run the compiled class file with the command:
+ $ java HashTest <input type> <load factor> [<debug level>]
+ 
+ With input type being either 1, 2, or 3 for Random Interger, Current Time, or Word-list.
+ Load factor being a float between 0 and 1 exclusive.
+ Debug level is optional. Use 0 or 1, 0 being default and 1 will print results to dump file.
+ 
+ To compile the HashTestWithJava use the following command:
+ $ javac HashTestWithJava.java
+ 
+ To run the HashTestWithJava use the following command:
+  $ java HashTest <input type> <load factor> <tableSize>[<debug level>]
+
+ With input type being either 1, 2, or 3 for Random Interger, Current Time, or Word-list.
+ Load factor being a float between 0 and 1 exclusive.
+ Table size being the size of the hash table you want.
+ Debug level is optional. Use 0 or 1, 0 being default and 1 will print results to dump file.
+ Console output will give the results after the program finishes.
+
+
+PROGRAM DESIGN AND IMPORTANT CONCEPTS:
+
+This program has a class that builds a hashobject, and a hashtable class which uses the
+hashobject class in order to hash objects into a table. In the HashTest class, a  hashTable is created
+that does both linear probing, and a double hashing function to place objects into the table and will 
+display results for each. The HashTestWithJava class will do the same as hashTest but instead uses 
+the java hashtable class.
+
+TESTING:
+
+Testing involved running and checking values against known correct values given in the write-up.
+
+
+DISCUSSION:
+ 
+ The only real problem I encountered with this project was the speed of my program. After some pondering
+ about the problem, I rearranged some statements in my search method and it seemed to run substantially faster. 
+ But even with this optimization, running the System Time still takes quite awhile to get results, and the duplicates
+ are in the billions with a .99 load factor. When running different load factors to get results I hardcoded the 
+ prime value of 95791 in order to get consistant results, instead of letting the program choose a random prime
+ number for each load factor experiment. 
+-------------------------------------------------------------------------------------------------------------
+
+Input source 1: random number
+
+alpha   Linear  Double
+-----------------------------
+0.5  	1.503  1.380
+0.6  	1.753  1.523
+0.7  	2.169  1.718
+0.8  	2.976  2.010
+0.9  	5.579  2.560
+0.95 	10.682 3.133
+0.98 	24.784 3.989
+0.99 	43.191 4.660
+
+Input source 2: current time
+
+alpha   Linear  Double
+-----------------------------
+0.5  	1.000  1.000
+0.6  	1.000  1.000
+0.7  	1.000  1.000
+0.8  	1.000  1.000
+0.9  	1.000  1.000
+0.95  	1.000  1.000
+0.98  	1.000  1.000
+0.99  	1.000  1.000
+
+Input source 3: word-list
+
+alpha   Linear  Double
+-----------------------------
+0.5  	1.582  	1.396
+0.6  	1.997  	1.538
+0.7  	3.544  	1.722
+0.8  	7.092  	2.015
+0.9  	21.232  2.564
+0.95  	148.741 3.148
+0.98  	366.136 3.979
+0.99  	523.935 4.611

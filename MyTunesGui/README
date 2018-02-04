@@ -1,0 +1,22 @@
+# Project 5: MyTunes GUI
+
+* Author: Josh Berkenmeier
+* Class: CS121 Section 01
+* Semester: Fall 2016
+
+## Overview
+
+This program creates a MyTunesGUIPanel with which you can play songs. This particular
+program creates a playlist from the given text file playlist.txt and plays the corresponding songs.
+
+## Compiling and Using
+
+To compile run javac MyTunesGUI.java in the command line.
+To use run java MyTunesGUI in the command line. The MyTunesGUIPanel will pop up with all the songs populated in the list and ready to be played. In order to play a song either click the desired song button in the "Music Square" or select a song in the list and press play. To play previous song in list press prev, to play next song in list play next. The play button will turn into a stop button when a song is playing. Press the stop button in order to stop the currently playing song. Click the move up/ move down buttons in order to move the order of a selected song in the list. Click add or remove song in order to add or remove songs from the list.
+
+## Discussion
+The main problem I had with this project was getting my move up/ move down buttons to work correctly with the rest of my GUI panel. With help from my instructor we discovered that my moveUp/moveDown methods within my playlist class were not actually moving the order of the songs in my playlist. With a few correct lines of code, and manipulating the right list within the methods, my move up and down buttons began to work properly as well as sync the correct data with my music square. Any other issues I had were small bugs that were corrected with a few simple lines of code, or slight rearrangment of existing code. Other than that the rest of this project went fairly smooth. I believe that with the helpful examples from the lab it enabled me to grasp some of the more challenging concepts involved in this project and to use this knowledge to complete my music player. For example in lab we created a photo square which functioned a lot like the music square we needed to have in our MyTunes. By examining this example I was able to take that logic and create my music square according to the needed specifications. I found this project quite fun because it gave us some freedom for creative control and to be able to set up our GUI panel any way we saw fit. It made my first time working with JPanels enjoyable and I found that I was excited to work on my project and get everything working the way I wanted.
+
+## Testing
+
+In order to test my project I would run the GUI after writing the code for all the different components and essentially try to "break" it to see what code I needed to change or fix. I considered my MyTunes complete when all of the components I needed were set in the panel, and everything worked the way it should when clicked or manipulated with nothing "breaking".

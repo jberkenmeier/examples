@@ -1,0 +1,65 @@
+****************
+* Project 2/Clocks
+* CS-221 Sect. 4
+* 2/23/17
+* Josh Berkenmeier
+****************
+
+
+OVERVIEW:
+
+This program creates different sub-classes of clocks, increments them for certain amounts of time
+and displays the time they show after those increments. 
+
+
+INCLUDED FILES:
+
+TimePiece.java- interface 
+Clock.java- abstract parent class
+Sundial.java- subclass to create sundial timepiece
+CuckooClock.java- subclass to create cuckoo clock timepiece
+GrandfatherClock.java- subclass to create grandfather clock timpiece
+AtomicClock.java- subclass to create atomic clock timepiece
+WristWatch.java- subclass to create wrist watch timepiece
+ClockSimulation.java- driver class, does work on all subclasses and diplays them
+README- this file
+
+
+COMPILING AND RUNNING:
+
+ From the directory containing all source files, compile the
+ driver class (and all dependencies) with the command:
+ $ javac ClockSimulation.java
+
+ Run the compiled class file with the command:
+ $ java ClockSimulation
+
+ Console output will give the results after the program finishes.
+
+
+PROGRAM DESIGN AND IMPORTANT CONCEPTS:
+
+This program demonstrates the use of polymorphism. It has an interface that ensures each
+class has the needed methods to perform the work needed. It has a parent class, Clock, and many subclasses
+that use this parent class (all of the timepieces). This allows you to store all of these subclasses
+into the same container of type Clocks in order to do work with them. This work happens in the driver class
+ClockSimulation, which puts all of the subclasses into a bag data structure. Then, with a couple of static methods,
+this class takes those elements out of the bag and ticks of a variety amounts of time from each time piece
+and displays the time each have.
+
+
+TESTING:
+
+The testing of this program was just running the driver class, and checking to see if the correct information
+was printed and displayed.
+
+
+DISCUSSION:
+ 
+ To be honest I didnt have any problems when writing this program. The instructions were straight forward, and by 
+ following them in order my project came together without a hitch. The only thing I hadn't encountered up until this
+ point was using enumerations but with a quick glance at the Java API it all made sense. The only other special thing
+ I had to do was create a decimal formatter in the individual display methods of all the sub-classes in order to 
+ display the correct format for drift amount. But as I had done this many times before it was no hurdle. This project
+ was actually enjoyable getting to write all of my classes and seeing how they all work together to get the desired
+ results.

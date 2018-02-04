@@ -1,0 +1,106 @@
+****************
+* Project: P2 Maxheap
+* Class: CS 321
+* Date: 9/29
+* Name: Josh Berkenmeier
+**************** 
+
+OVERVIEW:
+
+These programs create a maxheap data-structure, a priority queue from the maxheap, and a process to be generated through process generator.
+
+
+INCLUDED FILES:
+
+MaxHeap - source file
+PQueue - source file
+Process - source file
+ProcessGenerator- source file
+README - this file
+
+
+COMPILING AND RUNNING:
+
+**Info from given file**
+
+
+ To compile and run the tests, use these commands in the directory containing all source files.
+ 
+ # add TestNG library to Java build path 
+export CLASSPATH="$CLASSPATH:/usr/local/testng/plugins/jcommander-1.12.jar:/usr/local/testng/plugins/testng-6.3.1.jar"
+
+# compile Java class files
+javac *.java
+
+# run the TestNG tests, save in file called output
+java org.testng.TestNG p-queue.xml > PQ_output
+
+# system tests with given probability
+java CPUScheduler 6 5 4 200 $1 > CPUScheduler_output
+
+# run again to compare results 
+java Test 6 5 4 200 CPUScheduler_output > Test_output
+
+# check if outputs are different 
+diff CPUScheduler_output Test_output > diff_output
+
+
+
+PROGRAM DESIGN AND IMPORTANT CONCEPTS:
+
+The most code went into MaxHeap and the rest of the programs build off of it. Inside maxheap I take
+in two arrays for objects and key values and create a max heap out of them. The other methods inside this class
+enables you to get or extract the max object, insert obejects, increase key values, and other helper methods.
+The PQueue class creates a maxheap in the constructor and then calls the methods from the maxheap class. The other
+two classes, process and processgenerator, set up a new process, and generate the new process with values for the CPUScheduler.
+
+TESTING:
+
+My first tests were running testng through eclipse. To do this all I needed was to add the testng library to my folder containing
+all my source code, and run the xml file. This would run the needed tests and give a pass fail for certain things.
+
+Other testing is detailed below.
+
+
+**info from given file**
+ To compile and run the tests, use these commands in the directory containing all source files.
+ 
+ # add TestNG library to Java build path 
+export CLASSPATH="$CLASSPATH:/usr/local/testng/plugins/jcommander-1.12.jar:/usr/local/testng/plugins/testng-6.3.1.jar"
+
+# compile Java class files
+javac *.java
+
+# run the TestNG tests, save in file called output
+java org.testng.TestNG p-queue.xml > PQ_output
+
+# system tests with given probability
+java CPUScheduler 6 5 4 200 $1 > CPUScheduler_output
+
+# run again to compare results 
+java Test 6 5 4 200 CPUScheduler_output > Test_output
+
+# check if outputs are different 
+diff CPUScheduler_output Test_output > diff_output
+ 
+
+DISCUSSION:
+ 
+For the most part I thought this project was pretty straight forward and didnt take to much time to complete. 
+All of the code for maxheap, which was the bulk of the project, was provided in psuedo code which was pretty simple
+to transfer over into actual code. The only hang up I had which took my quite awhile to figure out was when running
+the testNG tests (in eclipse) it would only go through and pass three of the test files and stall out. Finally with
+a little insight, I found out that in my increase key method I was checking if the input key was less than the original key.
+If it was I was throwing an exception because in the notes it said to have an error if this condition proved true. Because
+I threw the exception the tests would not continue. After revising the part of code and taking the thrown exception out
+I passed all of the tests. 
+
+The rest of the classes took no time at all to write. The pqueue just called methods from maxheap, the process was pretty much
+all getters and setters with incrementing and decrementing. Then the process generator was making random values and generating a process.
+
+All in all, I thought this project wasnt that bad!
+ 
+ 
+EXTRA CREDIT:
+
+None

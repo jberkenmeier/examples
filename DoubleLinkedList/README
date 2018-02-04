@@ -1,0 +1,108 @@
+****************
+* Project 3: IUDoubleLinkedList
+* Class: CS221-4
+* Date: 5/3/17
+* Name: Josh Berkenmeier
+**************** 
+
+OVERVIEW:
+
+This program constructs a data structure using a double linked list that implements the
+IndexedUnsortedList interface.
+
+
+INCLUDED FILES:
+
+ * IUDoubleLinkedList.java - source file
+ * DLLNode.java - source files
+ * iuDoubleLinkedList.xml - test file
+ * Test_1_newList - test file
+ * Test_2_emptyList_addToFrontA_A - test file
+ * Test_3_emptyList_addToRearA_A - test file
+ * Test_4_emptyList_addA_A - test file
+ * Test_5_emptyList_add0A_A - test file
+ * Test_6_A_removeFirst_emptyList - test file
+ * Test_7_A_removeLast_emptyList - test file
+ * Test_8_A_removeA_emptyList - test file
+ * Test_9_A_addToFrontB_BA - test file
+ * Test_10_A_addToRearB_AB  - test file
+ * Test_11_A_addAfterBA_AB  - test file
+ * Test_12_A_remove0_emptylist - test file
+ * Test_13_A_set0B_B  - test file
+ * Test_14_A_add0B_BA - test file
+ * Test_15_A_add1B_AB - test file
+ * Test_16_AB_removeFirst_B  - test file
+ * Test_17_AB_removeLast_A - test file
+ * Test_18_AB_removeA_B - test file
+ * Test_19_AB_removeB_A - test file
+ * Test_20_AB_addToFrontC_CAB - test file
+ * Test_21_AB_addToRearC_ABC - test file
+ * Test_22_AB_addAfterCA_ACB - test file
+ * Test_23_AB_addAfterCB_ABC - test file
+ * Test_24_AB_remove0_B - test file
+ * Test_25_AB_remove1_A - test file
+ * Test_38_ABC_remove1_AC - test file
+ * README - this file
+
+
+COMPILING AND RUNNING:
+
+ This program constucts a data structure and therefore does not have a main driver class. This
+ means that this program is not "runnable". To compile and run the TestNG use the following commands
+ in the command line.
+ 
+ javac IUDoubleLinkedList.java
+ java org.testng.TestNG iuDoubleLinkedList.xml
+
+
+PROGRAM DESIGN AND IMPORTANT CONCEPTS:
+
+This program uses a double linked list in order to create a data structure that can 
+hold generic objects. The double list uses nodes in order to hold on to the element or
+data you are trying to store, and has previous and next pointers in order to access the 
+previous or next element in your list. With the use of a dummy node at the rear of the list
+allowed me to implement methods such as remove last with ease as well as giving an end guideline
+when searching through the list. This program has a variety of add and remove methods
+to suit the needs of the end user. These methods include ways to add/remove elements from the front
+or rear of the list, add/remove at an index, and add after a specified element.The program also 
+has your typical getter and setter methods in order to access or modify elements at a certain
+index.  With using pointers it was imperitave that with each method that changes the list, that 
+every pointer is reassigned properly or the list will not work correclty. This program also makes use
+of an iterator, that will help a user search through their list effortlessly, and since its a double 
+linked list with pointers both forward and backward the iterator is able to move forwards and 
+backwards as well. Again the dummy node helps ensure when the iterator has made it to the end of the 
+list. This program is set up so that the end user of the list does not have to know how a double linked
+list functions, but can read the interface and javadocs on the methods in order to be able to operate
+their list.
+
+TESTING:
+
+ For testing I modified multiple test classes and added them to an .xml file. Then with this file I ran 
+ testNG which ran all of the test classes in order to see if the program was functioning correctly. I also 
+ used an .xml file in order to run testNG on the implemented iterator to see if that was written and
+ functioning correctly. After writing my program I only had one issue that seemed to come up with an add method.
+ I checked this method and tried to determine what was coded wrong. I realized I had not taken a special case
+ into consideration, so I coded in a simple check. After this check was coded into the method, my double linked
+ list passed all of the list tests and iterator tests. After checking the tests on eclipse, I also ran the testNG
+ tests on the list through onyx by compiling the program and running java org.testng.TestNG iuDoubleLinkedList.xml
+ from the command line. When this showed that all tests were being passed I knew that the program was complete.
+
+
+DISCUSSION:
+ 
+ With all of the past work with linked lists and all the examples from class I thought this project was straightforward
+ and came very easily. In fact I found it simpler to code than the single linked list for the fact that I had pointers 
+ that went forwards and backwards. This made adding and removing elements a breeze. I just had to make sure I was updating
+ every pointer correctly when I made a change to the list, and kept in mind any special case that could arrise. Drawing out
+ diagrams and situations was a huge help as well because it allowed me to visualize and see what I was actually doing with my
+ list. This helped me determine what I needed to do with all of the nodes involved in each method and in what order I should
+ code each step and pointer reassignment. The use of a dummy node was also helpful because it was an end placeholder I could
+ use whenever dealing with changes to the end of my list or being a bounds indicator when searching through the list. After I
+ coded my entire list and iterator I really only had one issue that I needed to fix and it was fairly simple. I was passing the
+ majority of the tests and the only ones failing had to do with an certain add method. I went to this add method in the code 
+ and tried to figure out what could be the problem. With just a minute of thought I could see that I had forgotten to take in
+ mind a special case. With just a few lines of code in order to take care of the special case I ran my tests again. With this 
+ fix I was now passing every list and iterator test and I knew that my problem was fixed and that my double linked list was 
+ offically correct and complete. 
+ 
+ 

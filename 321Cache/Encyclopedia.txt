@@ -1,0 +1,1 @@
+/home/STEVENCUTCHIN/cs321/labs/lab1/files/Encyclopedia.txt

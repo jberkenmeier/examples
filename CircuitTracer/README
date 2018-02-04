@@ -1,0 +1,116 @@
+****************
+* Project 4: CircuitTracer
+* Class: CS221-4
+* Date: 4/28/17
+* Name: Josh Berkenmeier
+**************** 
+
+OVERVIEW:
+
+ This program takes in an input file of a layout of a circuit board with a starting
+ and end point, then prints out the shortest paths between the two points.
+
+
+INCLUDED FILES:
+
+ * CircuitTracer.java (source file)
+ * CircuitBoard.java (source file)
+ * README (this file)
+
+
+COMPILING AND RUNNING:
+
+ From the directory containing all source files, compile the
+ driver class (and all dependencies) with the command:
+ $ javac CircuitTracer.java
+
+ Run the compiled class file with the command:
+ (valid command line arguments: -s or -q, -c or -g, file name)
+ e.g.:
+ $ java CircuitTracer -s -c circuit1.dat
+
+ Since gui is not implemented, results of program will always print to console.
+
+ANALYSIS:
+
+With a stack, the state evaluations and state generations will follow 
+a general linear order because of the way you pop states off and on. 
+Implementation with a queue will branch out in a tree like fashion.
+The way stacks and queues work will affect the total number of search
+states. Since the stack will work in a linear fashion it will evaluate
+less states than an implementation of a queue that branches possible search
+states out. The Big-Oh runtime is n! for the number of elements.
+The memory use will be a lot greater when using a queue because it has 
+to hold all of the  =states as it branches out. The stack will use less 
+memory. They generally find solutions about the same speed, but the stack 
+would find a solution faster when you have a lot more options compared to
+the queue. Neither should guarantee that the first solution found will be an 
+ideal solution.
+
+PROGRAM DESIGN AND IMPORTANT CONCEPTS:
+
+The CircuitBoard.java program will take in the input file and do the 
+neccesary checks on it. It will create a board from the given dimensions, 
+if they are valid, and insert all of the needed elements into the board
+in their correct spot. If there is a value in the input file that does 
+not match any of the accecpted characters it will throw an InvalidFileFormatException
+and print a specified error message to notify you what is wrong with the
+input file. This program will also check to see if the dimensions of the
+board match the specified dimensions. This program will also check to see
+if there is a starting point and endpoint, or if there is more than one
+starting point or endpoint. If there is an error it will throw an InvalidFileFormatException
+and print a specified error message.
+
+The CircuitTracer.java program expands on this. It handles command line 
+arguments such as specifying to use a stack or queue to implement the 
+needed operations on the circuit board, printing to the console or gui
+(gui not implemented so it will always print to console) and initializes 
+a circuit board from specified input file. With all of this information it 
+will use an algorithm to start searching for the best paths between the starting
+and endpoint of your circuit board, constructing these paths each time a new way 
+is found and store these potential paths into a storage structure. When the
+program finds a complete path, it will save it into an Arraylist called best 
+paths. The algorithm will continue to try to find better paths, and as it find
+them will store the best paths and their equivalents into the best paths
+arraylist while errasing any paths that are less than the one it just found. 
+In the end it should have exhausted every possible path between the starting 
+and endpoint of the circuit board and then print out all the best paths found.
+
+TESTING:
+
+For my CircuitBoard.java, I created a test class with a main driver that
+created the circuit board from a input file and printed it out. With this I 
+could see if my program was catching all of the needed requirements of the 
+circuit board and if it was throwing the correct exceptions when the input file
+had an invalid format.
+
+To test the algorithm and rest of code in CircuitTracer, I ran every combination of
+arguments into the command line(valid, not valid, combination of both) to see if the program
+responded correctly. After I checked to see that the command line arguments worked with
+the program, I input each valid and invalid files into the command line to see if the 
+program ran right and printed the correct results to the console. The first and really only
+issue I had was at first I was not getting correct trace paths between the starting and endpoint
+and it looked as if my initialized coordinates for my starting and endpoint were incorrect. Going
+back to CircuitBoard where I initilized these variable, I switched the coordinate points for each. 
+Then I ran CircuitTracer once more and saw that I was getting the correct results and that the
+coordinates were actually my problem. After this my program ran correctly with all scenarios.
+
+
+DISCUSSION:
+ 
+I started this project with building my CircuitBoard class. Having done file parsing and formatting
+many times before this part of the assignment was straightforward and went smoothly. Especially with
+having the test class I built to see if the board was being constucted correctly answered any questions
+that I had. The difficult part of this assignment for me was when I got to the CircuitTracer class. This was
+just because I havent dealt with any program like this before so it took me a second to look over the requirements
+and the given classes to see what I actually needed to do, and the methods and tools from given classes that
+I could use to accomplish this. After pondering this part of the assignment for a bit and getting a feel for what I 
+needed to do, it wasnt as bad as I first thought. With the algorithm pretty much spelled out for us, I followed
+every step from top to bottom and it came together quite smoothly without any major hiccups. The classes given to us
+had all of the needed methods to put together the algorithm in the correct way and I just needed to know what I could use
+and when or how to use it. For example, when checking to see if a trace path was at the end, I took a second to try 
+to figure out how I would accomplish this in code, when I found that there was a method that would actually do this for
+me, isComplete(). Along these same lines, when searching for an open path in an uncomplete trace state, I could use the 
+method isOpen() and then just specify the corrdinates I wanted to search. As I kept writing code, the assignment became 
+more and more clear, and I had a solid idea of what I needed to do, and how to do it. All in all, with all of the tools
+given, this assignment became a lot easier than I thought in the beginning and was actually fun to finish.

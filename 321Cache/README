@@ -1,0 +1,60 @@
+Project: Lab1/Cache
+Class: CS 321
+Date: 9/8/17
+Name: Josh Berkenmeier
+
+OVERVIEW:
+
+This program takes in arguments from the command line and creates either a one or two level cache.
+Then with the text file that user inputs, it runs the data through the cache(s) and keeps track/prints stats.
+
+INCLUDED FILES:
+
+Cache.java - source file
+Test.java - driver class
+README - this file
+
+COMPILING AND RUNNING:
+
+To compile the program use these commands in the command line from directory that holds the correct files.
+
+javac Test.java
+
+java Test [1 | 2] [cache size] [cache 2 size] [filename]
+
+The first argument being either a 1 or 2 to indicate the amount of cache levels desired. The second argument 
+being the size of the first cache. The third argument is either the size of the second cache, or the text file name.
+If 2 is chosen for first argument, the fourth argument with be the file name.
+The console will then output the results of the program.
+
+PROGRAM DESIGN AND IMPORTANT CONCEPTS:
+
+The interface laid out exactly what needed to be done to complete the cache class. With having already done an implementation
+of a double linked list, it was simple to tranfer over some of the main logic needed in the required methods. The main method
+that I added myself was a find method to iterate over the list and return the node carrying the desired element, or just null if not found.
+I used this in my get method which made things a lot easier. With most of the logic already done for add/remove methods, I used these
+in the get method as well to take elements already in the list, remove them, and then add them to the front. These were the main methods
+used in the entire program, and all the others were either for simple help or to access/display various things in the cache.
+
+The test class just needed to handle arguments, and create the desired amount of caches. Then it would parse through a text file and pass the
+strings inside the text through the cache(s). With a couple conditional statments, it was easy to write the two-level cache logic so that if 
+the first cache had a hit, it would put the data to the top of both (get method cache 1, remove/add method of cache 2). If the first cache didnt
+have a hit, it would then search the second cache and update hits/misses appropriately (get method). After running the program it would then
+print out the results to the console.
+
+TESTING:
+To test, I ran the Test.java with the given txt files (small.txt, encyclopedia.txt) and specified arguments. Then I checked the output results against the given correct results.
+If everything matched up I determined my program was working correctly.
+
+DISCUSSION:
+
+The concept behind this project was pretty straightforward and with having already done an implementation using a double linked list
+a lot of the leg work was already done for me. At first I didnt follow the interface exactly which led to some problems, so I just simplified
+all my code to just basicly do exactly what the interface required. After this I was pretty confindent my program would work but I was getting some
+weird results. This is when I used to the debugger which I have been shaky at best on in the past. This time I actually kind of figured out how to properly
+use the debugger, and eventually found that my problem was with how I was finding elements. When I was checking if the node contained the desired
+element I was using == which when the elements were supposed to be equal, wasnt satisfying the condition. I then changed it to .equals and this immediatley 
+fixed my problem. I then ran tests for all outcomes with small.txt and encyclopedia.txt and got the right results each time. I was confident that my
+program was running correctly.
+
+

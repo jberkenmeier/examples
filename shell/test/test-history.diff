@@ -1,0 +1,28 @@
+6,9c6,9
+< 0 ls -l -a
+< 1 cd /home
+< 2 pwd
+< 3 history
+---
+> [0] ls -l -a
+> [1] cd /home
+> [2] pwd
+> [3] history
+18,22c18,28
+< 0 clear
+< 1 ls
+< 2 time
+< 3 pwd
+< 4 history
+---
+> [0] ls -l -a
+> [1] cd /home
+> [2] pwd
+> [3] history
+> [4] touch hello.txt
+> [5] cat hello.txt
+> [6] clear
+> [7] ls
+> [8] time
+> [9] pwd
+> [10] history

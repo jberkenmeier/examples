@@ -1,0 +1,98 @@
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class RandomWalk {
+
+	private int size;
+	private Random rand;
+	private boolean done;
+	ArrayList<Point> path;
+	Point start;
+	
+	public RandomWalk(int gridsize, long seed) 
+	{
+		size = gridsize;
+		rand = new Random(seed);
+		done = false;
+		path = new ArrayList<Point>();
+		start = new Point(0, size - 1);
+		//Point temp = point;
+		path.add(start);
+	}
+	
+	public void step() 
+	{
+		int dir = rand.nextInt();
+		Point newP;
+		Point point = path.get(path.size()-1);
+		
+		if(point.x == size - 1 && point.y == 0) 
+		{
+			done = true;
+		}
+		
+		else if(dir % 2 == 0) 
+		{
+			if(point.y < 0) 
+			{
+				newP = new Point(point.x, point.y - 1);
+				path.add(newP);
+			}
+			
+			else 
+			{
+				newP = new Point(point.x + 1, point.y);
+				path.add(newP);
+			}
+		}
+		
+		else 
+		{
+			if(point.x < size - 1) 
+			{
+				newP = new Point(point.x + 1, point.y);
+				path.add(newP);
+			}
+			
+			else 
+			{
+				newP = new Point(point.x, point.y - 1);
+				path.add(newP);
+			}
+		}
+		
+	}
+	
+	public void createWalk() 
+	{
+		if(!isDone()) 
+		{
+			step();
+		}
+	}
+	
+	public boolean isDone() 
+	{
+		return done;
+	}
+	
+	public ArrayList<Point> getPath()
+	{
+		return path;
+	}
+	
+	public String toString() 
+	{
+		String str = "";
+		
+		for(int i = 0; i < path.size(); i++) 
+		{
+			str += path.get(i) + " ";
+		}
+		
+		return str;
+	}
+	
+	
+}

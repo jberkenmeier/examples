@@ -1,0 +1,18 @@
+# Project 4: Text Statistics
+
+* Author:   Josh Berkenmeier
+* Class:    CS121 Section 01
+* Semester: Fall 2016
+
+## Overview
+
+The programs in this project will take files from the user and scan through the files to collect text statistics and return the information back to the user.
+
+## Compiling and Using
+To compile type javac ProcessText.java into the console, then to run and use type java ProcessText followed right after by the textfile names you wish to run statistics on. "Usage: java ProcessText file1 [file2]..."
+
+## Discussion
+I felt that this project was pretty straight foward and was quick to finish. I enjoyed it and felt like I had a good handle on the concepts that went into it. After implementing the TextStatisticsInterface I had all the return variables I needed to keep track of. For this I created static methods to handle parsing through the lines of text and collecting the different statistics needed as well as handling FileNotFoundExceptions.  This way I could just call on the static methods in the constructor to return the values. Writing the code for ProcessText was fairly straightforward as well. I just had to write a condition so the user has to input at least one textfile, and it give the user a usage message to show them what needs to be input.
+
+## Testing
+While writing the code for TextStatistics I tested my methods on Process texts by using sysout to print the values I was collecting. When my code was finished for the class I ran TextStatisticsTest and got a Passed! message for all the test textfiles. I then ran the files through autograde.sh on the console.

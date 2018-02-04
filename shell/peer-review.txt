@@ -1,0 +1,29 @@
+PEER REVIEW
+
+1. The current programming assignment is building the smash program. This program acts as a shell, 
+which records the commands the user inputs and allows you to do certain things such as changing the directory,
+or printing out the history of your commands. The next part of smash that we are about to start will add more
+funtionality to the program by allowing you to fork/exec certain commands like listing files in the directory.
+
+2. The goal of this programming assignment is to practive modular coding, which means breaking up your code into 
+different functions to perfom certain tasks. Anther goal is to help to learn how to code in C using these functions, as
+well as using things such as pointers to be able to parse out commands. With the current assignment smash 3, we will 
+be using fork and exec functions to help us understand the process of creating/managing processes.
+
+3. Review of Robins smash project:
+
+  Readability (2/2): His code was easy to follow, and all the variables seemed to be named properly for what
+  they were being used for. While reading the code, along with comments, I could clearly see what each part
+  of his program was doing/performing. 
+  
+  Structure (2/2): The code was structured very well. He had helper functions written at the top to perform various tasks for 
+  his program, and they were used accordingly in the main function at the bottom. 
+  
+  Testing (2/2): Used valgrind for testing and manual testing.
+
+
+Reflection: I agree with the score I was given, and his feedback was positive. He liked the way I split up
+my program into functions, had comments explaining what each did, and only had to call one of them in main.
+
+
+

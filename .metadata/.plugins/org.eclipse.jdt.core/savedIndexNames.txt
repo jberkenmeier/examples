@@ -1,0 +1,18 @@
+INDEX VERSION 1.130+/home/JoshuaBerkenmeier/eclipse-workspace/.metadata/.plugins/org.eclipse.jdt.core
+1532116113.index
+566761218.index
+377642242.index
+3646940848.index
+2695737215.index
+3908656217.index
+2382573623.index
+3172713524.index
+1428779282.index
+4224302039.index
+618476026.index
+3799078330.index
+266632058.index
+3246631280.index
+2734984457.index
+3751945699.index
+2543925744.index

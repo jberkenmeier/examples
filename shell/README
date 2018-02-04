@@ -1,0 +1,48 @@
+Project Smash pt. 1
+  Author: Josh Berkenmeier
+  Class: CS253
+  
+  
+Overview
+
+ This program makes a basic shell that has an exit command as well as a change directory command.
+ Any other commands that are input by user are just being printed to console.
+ 
+ Part2:
+ Added to the smash shell is a history command. It saves all the commands from user and prints them
+ all in succession when called. 
+ 
+Compiling and Using
+
+  To compile the program use the command make. Then to use the program input the comman ./smash. This will
+  start the program for you. When started you can change directories by typing cd <directory>. If an invalid
+  directory is input the program will print a warning, else it will change the directory. If you wish to exit
+  the shell simply use the command exit. Any other input will be printed to the console.
+  
+  Part2:
+  The smash shell will now print a history of command inputs when the command history is typed.
+  
+ Testing
+ 
+  To test I ran the program and input different commands to see if the program was behaving properly. After
+  I was sure my program was working correctly, I ran the grading script using the command ./backpack.sh <output>
+  with output just being a file that the test results are passed to. After seeing that I got a pass in the 
+  output file, I went on the further test my code for memory leaks using valgrind. When using this I found I was
+  getting a memory leak somewhere in my code when calling chdir. After talking to you, you helped me realize where
+  my problem was at. When calling chdir you cant pass in a null argument which I was essentially doing and checking
+  for null after the fact. To fix this I took the sting I was trying to chdir with out of the call, moved it to the 
+  top and checked for null first. In doing this my memory leaked was fixed and I was confindent that my program would
+  pass all the tests.
+
+  Part2:
+  To test the functionallity of part 2 I input a series of commands and checked to see if it printed all the statments 
+  correctly. When this seemed to be working fine I ran the valgrind on my program to check if all the memory I malloced
+  was being freed properly. Once this checked out with a clean bill of health I ran the shell script backpack.sh to 
+  see if I passed the grader. Once this gave me a pass I was confindent that my program was complete.
+  
+  
+ Sources Used
+  All sources were provided in class. Reading the documentation for various functions helped a lot as well.
+  
+ Known Issues
+  N/A
